@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IndexFragment">
+
+
+    <TextView
+        android:textColor="#003a3a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        android:textSize="20pt"
+        android:text="Hotel Questa Rica" />
+
+    <Button
+        android:id="@+id/btnListar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:width="65pt"
+        android:backgroundTint="#008585"
+        android:text="Listar Clientes"
+        android:textColor="#003a3a"
+        android:textSize="10pt" />
+</FrameLayout>
