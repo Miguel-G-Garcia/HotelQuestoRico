@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "491125941019",
+    "project_id": "proyecto-hotel-71864",
+    "storage_bucket": "proyecto-hotel-71864.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491125941019:android:7e2fe33f7255a67eb2a9be",
+        "android_client_info": {
+          "package_name": "com.miguel.proyecto_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491125941019-bt501ku10ln9ibm1gssfk2qslui8nh5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdQpQEiikTbmBtzyjnEt38bo0btE0RYNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491125941019-bt501ku10ln9ibm1gssfk2qslui8nh5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491125941019:android:a7d930174c0475a4b2a9be",
+        "android_client_info": {
+          "package_name": "com.miguel.proyecto_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491125941019-bt501ku10ln9ibm1gssfk2qslui8nh5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdQpQEiikTbmBtzyjnEt38bo0btE0RYNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491125941019-bt501ku10ln9ibm1gssfk2qslui8nh5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491125941019:android:78b7d4240fae045db2a9be",
+        "android_client_info": {
+          "package_name": "com.miguel.proyeto_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491125941019-bt501ku10ln9ibm1gssfk2qslui8nh5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdQpQEiikTbmBtzyjnEt38bo0btE0RYNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491125941019-bt501ku10ln9ibm1gssfk2qslui8nh5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

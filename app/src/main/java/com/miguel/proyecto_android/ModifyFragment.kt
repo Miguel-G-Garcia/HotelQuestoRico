@@ -23,11 +23,9 @@ class ModifyFragment : Fragment(R.layout.fragment_modify) {
             var image = "https://picsum.photos/300"
 
             if (posicion != -1) {
-                val client = ClientManager.findClient(posicion!!)
-                nombre.setText(client.nombre)
-                gmail.setText(client.gmail)
-                telefono.setText(client.telefono.toString())
-                image = client.foto
+                val reserva = ReservaManager.findReserva(posicion!!)
+                fecha.setText(reserva.fecha)
+                image = reserva.foto
                 Glide.with(picture)
                     .load(image)
                     .into(picture)
@@ -38,16 +36,14 @@ class ModifyFragment : Fragment(R.layout.fragment_modify) {
             }
 
             btnSave.setOnClickListener{
-                val client = Client(
-                    nombre =  nombre.text.toString(),
-                    gmail =  gmail.text.toString(),
-                    telefono =  telefono.text.toString().toInt(),
+                val reserva = Reserva(
+                    fecha =  fecha.text.toString(),
                     foto = image
                 )
                 if(posicion != -1){
-                    ClientManager.modifyCLient(posicion, client)
+                    ReservaManager.modifyReserva(posicion, reserva)
                 }else{
-                    ClientManager.addClient(client)
+                    ReservaManager.addReserva(reserva)
                 }
 
                 parentFragmentManager.popBackStack()

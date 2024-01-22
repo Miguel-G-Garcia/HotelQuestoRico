@@ -3,20 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/indexFragment">
+    app:startDestination="@id/reservaListFragment">
 
-    <fragment
-        android:id="@+id/clientListFragment"
-        android:name="com.miguel.proyecto_android.ClientListFragment"
-        android:label="fragment_client_list"
-        tools:layout="@layout/fragment_client_list" >
-        <action
-            android:id="@+id/action_clientListFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_clientListFragment_to_modifyFragment"
-            app:destination="@id/modifyFragment" />
-    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.miguel.proyecto_android.DetailFragment"
@@ -28,13 +16,15 @@
         android:label="fragment_modify"
         tools:layout="@layout/fragment_modify" />
     <fragment
-        android:id="@+id/indexFragment"
-        android:name="com.miguel.proyecto_android.IndexFragment"
-        android:label="fragment_index"
-        tools:layout="@layout/fragment_index" >
+        android:id="@+id/reservaListFragment"
+        android:name="com.miguel.proyecto_android.ReservaListFragment"
+        android:label="fragment_client_list"
+        tools:layout="@layout/fragment_reserva_list" >
         <action
-            android:id="@+id/action_indexFragment_to_clientListFragment"
-            app:destination="@id/clientListFragment" />
+            android:id="@+id/action_reservaListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_reservaListFragment_to_modifyFragment"
+            app:destination="@id/modifyFragment" />
     </fragment>
-    <fragment android:id="@+id/placeholder" />
 </navigation>

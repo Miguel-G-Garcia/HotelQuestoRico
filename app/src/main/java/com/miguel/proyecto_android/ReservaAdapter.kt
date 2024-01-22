@@ -5,37 +5,37 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.miguel.proyecto_android.databinding.ViewClientBinding
+import com.miguel.proyecto_android.databinding.ViewReservaBinding
 
-class ClientAdapter (
-    val context: ClientListFragment,
-    val listener: (Client) -> Unit)
-    : RecyclerView.Adapter<ClientAdapter.ViewHolder>() {
+class ReservaAdapter (
+    val context: ReservaListFragment,
+    val listener: (Reserva) -> Unit)
+    : RecyclerView.Adapter<ReservaAdapter.ViewHolder>() {
 
-    var clients = emptyList<Client>()
+    var reservas = emptyList<Reserva>()
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-            val binding = ViewClientBinding.bind(view)
-            fun bind(client: Client){
+            val binding = ViewReservaBinding.bind(view)
+            fun bind(reserva: Reserva){
                 with(binding) {
-                    nombre.text = client.nombre
+                    fecha.text = reserva.fecha
                     Glide.with(imageView)
-                        .load(client.foto)
+                        .load(reserva.foto)
                         .into(imageView)
                 }
             }
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_client, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_reserva, parent, false)
         return ViewHolder(view)
     }
 
-    override fun getItemCount() = clients.size
+    override fun getItemCount() = reservas.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(clients[position])
-        holder.itemView.setOnClickListener { listener(clients[position]) }
+        holder.bind(reservas[position])
+        holder.itemView.setOnClickListener { listener(reservas[position]) }
         holder.binding.btnBorrar.setOnClickListener { context.onBorrar(position)}
         holder.binding.btnModificar.setOnClickListener { context.onModificar(position) }
     }

@@ -17,24 +17,24 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/nombre"
+        android:id="@+id/fecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Nombre"
+        android:text="Fecha"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/picture"
         app:layout_constraintStart_toStartOf="@+id/picture"
-        app:layout_constraintTop_toBottomOf="@+id/labelNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/labelFecha" />
 
     <TextView
-        android:id="@+id/labelNombre"
+        android:id="@+id/labelFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
-        android:text="Nombre: "
+        android:text="Fecha: "
         android:textColor="@color/black"
         android:textSize="10pt"
         app:layout_constraintEnd_toEndOf="@+id/picture"
@@ -61,9 +61,9 @@
         android:text="Gmail: "
         android:textColor="@color/black"
         android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="@+id/labelNombre"
-        app:layout_constraintStart_toStartOf="@+id/labelNombre"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+        app:layout_constraintEnd_toEndOf="@+id/labelFecha"
+        app:layout_constraintStart_toStartOf="@+id/labelFecha"
+        app:layout_constraintTop_toBottomOf="@+id/fecha" />
 
 
     <TextView
@@ -86,8 +86,8 @@
         android:text="Telefono: "
         android:textColor="@color/black"
         android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="@+id/labelNombre"
-        app:layout_constraintStart_toStartOf="@+id/labelNombre"
+        app:layout_constraintEnd_toEndOf="@+id/labelFecha"
+        app:layout_constraintStart_toStartOf="@+id/labelFecha"
         app:layout_constraintTop_toBottomOf="@+id/gmail" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

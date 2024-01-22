@@ -16,26 +16,15 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentDetailBinding.bind(view).apply {
-            val client = arguments?.getParcelable<Client>("client")
-            nombre.text = client?.nombre
-            gmail.text = client?.gmail
-            telefono.text = client?.telefono.toString()
+            val reserva = arguments?.getParcelable<Reserva>("reserva")
+            fecha.text = reserva?.fecha
             Glide.with(picture)
-                .load(client?.foto)
+                .load(reserva?.foto)
                 .into(picture)
 
             btnReturn.setOnClickListener{
                 parentFragmentManager.popBackStack()
             }
-            gmail.setOnClickListener{
-                sendEmail(gmail.text.toString())
-            }
-
-
-            telefono.setOnClickListener{
-                call(telefono.text.toString())
-            }
-
         }
 
     }

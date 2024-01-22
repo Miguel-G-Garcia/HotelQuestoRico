@@ -4,9 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Client(
-    var nombre: String,
-    var gmail: String,
-    var telefono: Int,
+data class Reserva(
+    var fecha: String,
     var foto: String
 ): Parcelable
