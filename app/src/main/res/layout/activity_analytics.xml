@@ -33,23 +33,24 @@
         android:orientation="vertical"
         android:layout_weight="1">
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:text="exit"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/config"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Button" />
+            android:text="Configurar" />
 
         <Button
-            android:id="@+id/btnCerrarSesion"
+            android:id="@+id/singOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Cerrar sesión"/>
+            android:text="Sing out" />
+
     </LinearLayout>
 </LinearLayout>

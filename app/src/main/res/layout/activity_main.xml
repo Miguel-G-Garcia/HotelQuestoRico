@@ -17,46 +17,13 @@
         app:navGraph="@navigation/nav_graph"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="-160dp" />
-    <GridLayout
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#008585"
-        >
-
-        <Button
-            android:id="@+id/options"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_margin="0dp"
-            android:text="Settings"
-            android:textAllCaps="true"
-            app:backgroundTint="#008585" />
-
-        <Button
-            android:id="@+id/home"
-            style="@style/Widget.AppCompat.Button"
-            app:backgroundTint="#008585"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="home"
-            android:textAllCaps="true" />
-
-        <Button
-            android:id="@+id/signOut"
-            style="@style/Widget.AppCompat.Button"
-            app:backgroundTint="#008585"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_columnWeight="1"
-            android:text="Sign out"
-            android:textAllCaps="true" />
-    </GridLayout>
-
-
+        android:id="@+id/toolbar"
+        app:menu="@menu/menu"
+        />
 
 
 </LinearLayout>

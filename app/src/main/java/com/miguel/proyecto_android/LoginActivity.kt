@@ -19,12 +19,13 @@ import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAnalytics: FirebaseAnalytics
-    private val auth = AuthManager(this)//(application as App).auth
+    private  lateinit var  auth: AuthManager//(application as App).auth
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        auth = AuthManager(this)
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         if (auth.getCurrentUser() != null){
-            val intent = Intent(this@LoginActivity, AnalyticsActivity::class.java)
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
         }
 
@@ -88,11 +89,15 @@ class LoginActivity : AppCompatActivity() {
             inicioGoogle.setOnClickListener {
                 auth.signInWithGoogle(googleSignLauncher)
             }
+            singOut.setOnClickListener {
+                auth.signOut()
+                
+            }
         }
 
     }
 
-    @OptIn(DelicateCoroutinesApi::class)
+   
     private fun emailPassSignIn(eMail: String, password: String) {
         if (eMail.isNotEmpty() && password.isNotEmpty()) {
             GlobalScope.launch(Dispatchers.IO) {
