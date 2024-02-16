@@ -5,76 +5,75 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
+import com.miguel.proyecto_android.core.FirestoreManager
 import com.miguel.proyecto_android.databinding.FragmentReservaListBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ReservaListFragment : Fragment(R.layout.fragment_reserva_list) {
+    
     private lateinit var binding: FragmentReservaListBinding
-        val db = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
     
-   
-       
-    
+    private lateinit var factory: ReservasViewModelFactory
+    val viewModel: ReservasViewModel by viewModels{factory}
     
     
     private val adapter = ReservaAdapter(this@ReservaListFragment){ reserva ->
         findNavController().navigate(R.id.action_reservaListFragment_to_detailFragment,
             bundleOf("reserva" to reserva)
         ) }
+    
+    @Deprecated("Deprecated in Java")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        factory  = ReservasViewModelFactory(FirestoreManager((requireActivity() as MainActivity)))
+       
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-
-        binding = FragmentReservaListBinding.bind(view).apply {
+        viewModel.state.observe(viewLifecycleOwner) { state ->
+            // Actualizar la interfaz de usuario con las reservas
             
+                    binding = FragmentReservaListBinding.bind(view).apply {
+                            loadItems(state)
+                
+            }
            
-           // if (adapter.itemCount == 0){
-                loadItems()
-           // }
-            recyclerView.adapter = adapter
         }
+        
 
     }
     
     
     
     
-    private fun loadItems() {
-            GlobalScope.launch(Dispatchers.Main) {
+    private fun loadItems(state: ReservasViewModel.UiState) {
+        viewLifecycleOwner.lifecycleScope.launch {
+                state.reservasFlow?.collect { reservas ->
                 
                 binding.recyclerView.visibility = View.GONE
+                binding.noReservText.visibility = View.GONE
                 
                 binding.progressBar.visibility =View.VISIBLE
-               
-                val db = FirebaseFirestore.getInstance()
-                val user = ((activity as MainActivity)).getCurrentUser().toString()
-                val reservas = mutableListOf<Reserva>()
-                db.collection("reservas")
-                    .whereEqualTo("user", user)
-                    .get()
-                    .addOnSuccessListener { documents ->
-                        for (document in documents) {
-                            
-                            val reserva = document.toObject(Reserva::class.java)
-                            reservas.add(reserva)
-                            Log.i("DB_LOG", "Datos recogidos correctamente" + reserva.toString())
-                        }
-                        adapter.reservas = reservas
-                        adapter.notifyDataSetChanged()
-                        binding.progressBar.visibility = View.GONE
-                        binding.recyclerView.visibility = View.VISIBLE
-                        
-                        ReservaManager.setReservas(reservas)
-                        Log.i("DB_MANAGER", "Datos del manager" + ReservaManager.getReservas().toString())
-                    }
-                    .addOnFailureListener { exception ->
-                        Log.e("DB_LOG_ERROR", "Error obteniendo documentos: $exception")
-                    }
+                
+                adapter.reservas = reservas
+                adapter.notifyDataSetChanged()
+                binding.progressBar.visibility = View.GONE
+                if (!ReservaManager.isReservasEmpty()) {
+                    binding.recyclerView.visibility = View.VISIBLE
+                }else{
+                    binding.noReservText.visibility = View.VISIBLE
+                }
+                }
                 
         }
     }
@@ -87,7 +86,6 @@ class ReservaListFragment : Fragment(R.layout.fragment_reserva_list) {
                 ReservaManager.deleteReserva(posicion)
                 binding.recyclerView.adapter?.notifyItemRemoved(posicion)
                 
-                loadItems()
             }
             .addOnFailureListener{
                 Log.e("DB_BORRAR", "No se pudo borrar la reserva: id=$id")

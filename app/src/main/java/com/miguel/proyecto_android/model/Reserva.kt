@@ -1,16 +1,16 @@
-package com.miguel.proyecto_android
+package com.miguel.proyecto_android.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Reserva(
-    var id: String,
+    var id: String = "",
     var fecha: String,
     var foto: String,
     var user: String,
 ): Parcelable
 {
-    // Necesitas un constructor vacío para Firestore
-    constructor() : this("","", "", "")
+    constructor() : this("","","","")
 }
+

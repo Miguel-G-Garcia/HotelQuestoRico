@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.miguel.proyecto_android.databinding.ViewReservaBinding
+import com.miguel.proyecto_android.model.Reserva
 
 class ReservaAdapter (
     val context: ReservaListFragment,

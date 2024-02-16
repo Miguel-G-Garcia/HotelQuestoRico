@@ -9,6 +9,8 @@ class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        auth = AuthManager(this)
+        firestore = FirestoreManager(this)
         
     }
 }

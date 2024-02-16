@@ -2,6 +2,7 @@ package com.miguel.proyecto_android
 
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import com.miguel.proyecto_android.model.Reserva
 
 object ReservaManager {
     private val reservas = mutableListOf<Reserva>()
@@ -17,7 +18,7 @@ object ReservaManager {
     fun modifyReserva(position: Int, reserva: Reserva){
         reservas[position] = reserva
     }
-    fun findReserva(position: Int):Reserva{
+    fun findReserva(position: Int): Reserva {
         return reservas[position]
     }
     
@@ -29,8 +30,8 @@ object ReservaManager {
         return reservas.isEmpty()
     }
     
-    fun setReservas(reservas2: List<Reserva>){
-       for(reserva in reservas2){
+    fun setReservas(reservas: List<Reserva>){
+       for(reserva in reservas){
            Log.i("MANAGER_DATA", "reserva"+reserva)
            this.reservas.add(reserva)
        }

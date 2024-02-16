@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.miguel.proyecto_android.databinding.FragmentModifyBinding
+import com.miguel.proyecto_android.model.Reserva
 import java.util.UUID
 
 
@@ -23,8 +24,9 @@ class ModifyFragment : Fragment(R.layout.fragment_modify) {
 
         val binding = FragmentModifyBinding.bind(view).apply {
             val posicion = arguments?.getInt(POS)
-            val user = ((activity as MainActivity)).getCurrentUser().toString()
-                
+            //val user = ((activity as MainActivity)).getUserID()
+            val user = ""
+            
             val id: String
             var image = randomImage()
 
@@ -59,7 +61,7 @@ class ModifyFragment : Fragment(R.layout.fragment_modify) {
                 }
                 db.collection("reservas").document(id)
                     .set(reserva).addOnFailureListener { e ->
-                        Log.e("DB_SAVE","Error actualizando reserva: $e")
+                        Log.e("DB_SAVE_ERROR","Error actualizando reserva: $e")
                     }
                 findNavController().navigate(R.id.action_global_reservaListFragment)
             }

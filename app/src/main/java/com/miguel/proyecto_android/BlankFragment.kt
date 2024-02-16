@@ -40,7 +40,6 @@ class BlankFragment : Fragment(R.layout.fragment_blank) {
 			
 			singOut.setOnClickListener {
 				auth.signOut()
-				findNavController().popBackStack()
 				(activity as MainActivity).finish()
 			}
 			

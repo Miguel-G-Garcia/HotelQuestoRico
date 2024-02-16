@@ -7,7 +7,8 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/baseline_home_24"
-        android:title="home" />
-    <item android:id="@+id/singout"
-        android:title="Sing out" />
+        android:title="Home" />
+    <item android:id="@+id/addReservation"
+        android:icon="@drawable/baseline_post_add_24"
+        android:title="Hacer Reserva" />
 </menu>

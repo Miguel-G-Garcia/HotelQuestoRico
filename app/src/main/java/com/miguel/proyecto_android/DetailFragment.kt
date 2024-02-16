@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.miguel.proyecto_android.databinding.FragmentDetailBinding
+import com.miguel.proyecto_android.model.Reserva
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
