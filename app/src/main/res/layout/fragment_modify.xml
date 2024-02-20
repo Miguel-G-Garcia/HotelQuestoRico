@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ModifyFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:id="@+id/constraintLayout"
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/picture"
         android:layout_width="200dp"
@@ -16,102 +31,73 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <EditText
-        android:id="@+id/fecha"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/labelfechainicio"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:hint="12/12/2012"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textSize="10pt"
-        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+        android:hint="Fecha inicio"
+        app:hintTextColor="@android:color/white"
+        app:errorTextColor="@color/white"
+        app:hintAnimationEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/labelfechafinal"
         app:layout_constraintEnd_toEndOf="@+id/picture"
         app:layout_constraintStart_toStartOf="@+id/picture"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/picture">
 
-    <TextView
-        android:id="@+id/labelFecha"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fechainicio"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="10pt" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/labelfechafinal"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30px"
-
-        android:text="Fecha: "
-        android:textColor="@color/black"
-        android:textSize="10pt"
-        app:layout_constraintBottom_toTopOf="@+id/fecha"
-        app:layout_constraintEnd_toEndOf="@+id/picture"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/gmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30px"
-        android:backgroundTint="@color/black"
-        android:hint="Gmail"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textSize="10pt"
+        android:hint="Fecha Final"
+        app:errorTextColor="@color/white"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/picture"
         app:layout_constraintStart_toStartOf="@+id/picture"
-        app:layout_constraintTop_toBottomOf="@+id/labelGmail" />
+        app:layout_constraintTop_toBottomOf="@+id/labelfechainicio">
 
-    <TextView
-        android:id="@+id/labelGmail"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fechafinal"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="10pt" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/labelocupantes"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8pt"
-        android:text="Gmail: "
-        android:textColor="@color/black"
-        android:textSize="10pt"
+        android:hint="Ocupantes"
+        app:errorTextColor="@color/white"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/picture"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fecha" />
+        app:layout_constraintStart_toStartOf="@+id/picture"
+        app:layout_constraintTop_toBottomOf="@+id/labelfechafinal">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ocupantes"
+            android:inputType="phone"
+            android:textColor="@color/black"
+            android:textSize="10pt" />
 
-    <EditText
-        android:id="@+id/telefono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30px"
-        android:backgroundTint="@color/black"
-        android:hint="123456789"
-        android:inputType="phone"
-        android:textColor="@color/black"
-        android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTelefono" />
-
-    <TextView
-        android:id="@+id/labelTelefono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8pt"
-        android:text="Telefono: "
-        android:textColor="@color/black"
-        android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="@+id/picture"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gmail" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15pt"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#008585"
-        android:clickable="true"
-        android:src="@drawable/baseline_arrow_back_24"
-        android:text="Cancelar"
-        android:textColor="#003a3a"
-        android:textSize="10pt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSave" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSave"
@@ -121,12 +107,13 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#008585"
         android:clickable="true"
-        android:src="@drawable/baseline_arrow_back_24"
         android:text="Guardar"
-        android:textColor="#003a3a"
+        android:textColor="#EFFFFF"
         android:textSize="10pt"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCancel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

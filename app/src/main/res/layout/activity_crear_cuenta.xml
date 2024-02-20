@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
+    android:background="#D5EDFF"
     tools:context=".CrearCuenta">
 
     <TextView
@@ -51,7 +52,7 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nickName"
+            android:id="@+id/atNickName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nickname" />
@@ -64,7 +65,8 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone"
+            android:id="@+id/atPhone"
+            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefono" />

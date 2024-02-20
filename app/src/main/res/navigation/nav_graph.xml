@@ -34,7 +34,7 @@
     </fragment><action android:id="@+id/action_global_reservaListFragment" app:destination="@id/reservaListFragment"/>
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.miguel.proyecto_android.BlankFragment"
+        android:name="com.miguel.proyecto_android.SettingsFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" /><action android:id="@+id/action_global_blankFragment" app:destination="@id/blankFragment"/>
+        tools:layout="@layout/fragment_settings" /><action android:id="@+id/action_global_blankFragment" app:destination="@id/blankFragment"/>
 </navigation>

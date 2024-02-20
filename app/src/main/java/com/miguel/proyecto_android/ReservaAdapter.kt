@@ -1,5 +1,6 @@
 package com.miguel.proyecto_android
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,9 @@ class ReservaAdapter (
             val binding = ViewReservaBinding.bind(view)
             fun bind(reserva: Reserva){
                 with(binding) {
-                    fecha.text = reserva.fecha
+                   
+                    fecha.setText(reserva.fechaInicio)
+                    Log.i("Adapter_Data", reserva.fechaInicio + " " +fecha.text)
                     Glide.with(imageView)
                         .load(reserva.foto)
                         .into(imageView)
@@ -37,8 +40,8 @@ class ReservaAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(reservas[position])
         holder.itemView.setOnClickListener { listener(reservas[position]) }
-        holder.binding.btnBorrar.setOnClickListener { context.onBorrar(position)}
-        holder.binding.btnModificar.setOnClickListener { context.onModificar(position) }
+        holder.binding.btnBorrar.setOnClickListener { context.onBorrar(reservas[position].id)}
+        holder.binding.btnModificar.setOnClickListener {context.onModificar(reservas[position].id) }
     }
 
 }

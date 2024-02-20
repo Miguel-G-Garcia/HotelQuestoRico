@@ -17,24 +17,24 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/fecha"
+        android:id="@+id/fechainicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Fecha"
+        android:text="FEcha Inicial"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/picture"
         app:layout_constraintStart_toStartOf="@+id/picture"
-        app:layout_constraintTop_toBottomOf="@+id/labelFecha" />
+        app:layout_constraintTop_toBottomOf="@+id/labelfechainicio" />
 
     <TextView
-        android:id="@+id/labelFecha"
+        android:id="@+id/labelfechainicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
-        android:text="Fecha: "
+        android:text="Fecha Inicial: "
         android:textColor="@color/black"
         android:textSize="10pt"
         app:layout_constraintEnd_toEndOf="@+id/picture"
@@ -42,53 +42,53 @@
         app:layout_constraintTop_toBottomOf="@+id/picture" />
 
     <TextView
-        android:id="@+id/gmail"
+        android:id="@+id/fechafinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Gmail"
+        android:text="Fecha Ida"
         android:textColor="#088408"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/picture"
         app:layout_constraintStart_toStartOf="@+id/picture"
-        app:layout_constraintTop_toBottomOf="@+id/labelGmail" />
+        app:layout_constraintTop_toBottomOf="@+id/labelfechafinal" />
 
     <TextView
-        android:id="@+id/labelGmail"
+        android:id="@+id/labelfechafinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Gmail: "
+        android:text="Fecha Ida: "
         android:textColor="@color/black"
         android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="@+id/labelFecha"
-        app:layout_constraintStart_toStartOf="@+id/labelFecha"
-        app:layout_constraintTop_toBottomOf="@+id/fecha" />
+        app:layout_constraintEnd_toEndOf="@+id/labelfechainicio"
+        app:layout_constraintStart_toStartOf="@+id/labelfechainicio"
+        app:layout_constraintTop_toBottomOf="@+id/fechainicio" />
 
 
     <TextView
-        android:id="@+id/telefono"
+        android:id="@+id/ocupantes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Telefono"
+        android:text="ocupantes"
         android:textColor="#088408"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTelefono" />
+        app:layout_constraintTop_toBottomOf="@+id/labelocupantes" />
 
     <TextView
-        android:id="@+id/labelTelefono"
+        android:id="@+id/labelocupantes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Telefono: "
+        android:text="Ocupantes: "
         android:textColor="@color/black"
         android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="@+id/labelFecha"
-        app:layout_constraintStart_toStartOf="@+id/labelFecha"
-        app:layout_constraintTop_toBottomOf="@+id/gmail" />
+        app:layout_constraintEnd_toEndOf="@+id/labelfechainicio"
+        app:layout_constraintStart_toStartOf="@+id/labelfechainicio"
+        app:layout_constraintTop_toBottomOf="@+id/fechafinal" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnReturn"

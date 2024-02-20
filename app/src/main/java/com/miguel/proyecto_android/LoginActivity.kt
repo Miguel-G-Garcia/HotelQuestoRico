@@ -1,8 +1,11 @@
 package com.miguel.proyecto_android
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.material.snackbar.Snackbar
@@ -19,8 +22,9 @@ import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAnalytics: FirebaseAnalytics
-    private  lateinit var  auth: AuthManager//(application as App).auth
+    private var  auth = AuthManager(this)
     private lateinit var binding: ActivityLoginBinding
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -78,7 +82,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
             btnInicioSesion.setOnClickListener {
-                emailPassSignIn(etEmail.text.toString(), etPassword.text.toString())
+               emailPassSignIn(etEmail.text.toString(), etPassword.text.toString())
+               
             }
 
             tvOlvidasteContrasena.setOnClickListener {
@@ -89,16 +94,15 @@ class LoginActivity : AppCompatActivity() {
             inicioGoogle.setOnClickListener {
                 auth.signInWithGoogle(googleSignLauncher)
             }
-            singOut.setOnClickListener {
-                auth.signOut()
-                
-            }
+            
         }
 
     }
+    
+    
 
    
-    private fun emailPassSignIn(eMail: String, password: String) {
+    fun emailPassSignIn(eMail: String, password: String){
         if (eMail.isNotEmpty() && password.isNotEmpty()) {
             GlobalScope.launch(Dispatchers.IO) {
                 when (auth.signInWithEmailAndPassword(
@@ -106,9 +110,11 @@ class LoginActivity : AppCompatActivity() {
                     password
                 )){
                     is AuthRes.Success -> {
-                        Snackbar.make(binding.root, "Inicio de sesión correcto", Snackbar.LENGTH_SHORT).show()
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
+                            Snackbar.make(binding.root, "Inicio de sesión correcto", Snackbar.LENGTH_SHORT)
+                                .show()
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
+                        
                     }
                     is AuthRes.Error -> {
                         Snackbar.make(binding.root, "Error al iniciar sesión", Snackbar.LENGTH_SHORT).show()

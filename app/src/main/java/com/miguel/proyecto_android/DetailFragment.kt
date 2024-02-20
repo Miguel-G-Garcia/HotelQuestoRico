@@ -18,7 +18,9 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
         val binding = FragmentDetailBinding.bind(view).apply {
             val reserva = arguments?.getParcelable<Reserva>("reserva")
-            fecha.text = reserva?.fecha
+            fechainicio.setText(reserva?.fechaInicio)
+            fechafinal.setText(reserva?.fechaFinal)
+            ocupantes.setText(reserva?.ocupantes.toString())
             Glide.with(picture)
                 .load(reserva?.foto)
                 .into(picture)

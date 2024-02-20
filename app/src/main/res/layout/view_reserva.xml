@@ -5,16 +5,16 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="8dp"
-    app:cardCornerRadius="8dp"
-    android:layout_margin="10dp">
+    app:cardCornerRadius="16dp"
+    android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#3BE3E3">
+        android:background="#D5FFFF"
+        android:padding="16dp">
 
         <ImageView
-
             android:id="@+id/imageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -31,10 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="1"
             android:text="TextView"
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/options"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -54,7 +53,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="30px"
-                android:backgroundTint="#FF0000"
+                android:backgroundTint="#FA6B6B"
                 android:src="@drawable/baseline_delete_24" />
 
             <ImageButton
@@ -62,10 +61,9 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="30px"
-                android:backgroundTint="#19CA05"
+                android:backgroundTint="#43BA37"
                 android:src="@drawable/baseline_edit_24"
                 app:tint="#FFFFFF" />
-
 
         </LinearLayout>
 

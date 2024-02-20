@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity() {
 		setContentView(binding.root)
 		auth = AuthManager(this)
 		firebaseAnalytics = FirebaseAnalytics.getInstance(this)
-		val factory = ReservasViewModelFactory(FirestoreManager(this))
-		val viewModel = ViewModelProvider(this, factory).get(ReservasViewModel::class.java)
+		
 		with(binding){
 			toolbar.setOnItemSelectedListener { item ->
 				when (item.itemId) {
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 					R.id.opciones -> findNavController(navHostFragment.id).navigate(R.id.action_global_blankFragment)
 					R.id.addReservation -> {
 						findNavController(navHostFragment.id).navigate(R.id.action_global_modifyFragment,
-							bundleOf(ModifyFragment.POS to -1))
+							bundleOf(ModifyFragment.ID to "null"))
 					}
 					
 				}

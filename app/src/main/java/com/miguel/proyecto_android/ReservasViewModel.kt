@@ -1,5 +1,6 @@
 package com.miguel.proyecto_android
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,9 +35,9 @@ class ReservasViewModel(val firestore: FirestoreManager): ViewModel() {
         _state.value = _state.value?.copy(navigateToCreate = false)
     }
 
-    fun deleteReserva(reserva: Reserva){
+    fun deleteReserva(reservaID: String){
         viewModelScope.launch(Dispatchers.IO) {
-            firestore.deleterReservaById(reserva.id)
+            firestore.deleteReservaById(reservaID)
         }
     }
     fun addReserva(reserva: Reserva){
@@ -50,7 +51,11 @@ class ReservasViewModel(val firestore: FirestoreManager): ViewModel() {
         }
     }
     
-    
+    suspend fun findReservaById(id: String): Reserva{
+        val reserva = firestore.findReservaById(id)
+        Log.i("RM_find",reserva.toString())
+        return reserva
+    }
     
     
     data class UiState(
