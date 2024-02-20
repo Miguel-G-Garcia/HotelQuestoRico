@@ -66,7 +66,7 @@ class CrearCuenta : AppCompatActivity() {
                                     Cliente(
                                         nickName,
                                         phone.replace("[^0-9]".toRegex(), "").toInt() ,
-                                        ""
+                                        atAddress.text.toString(),
                                     )
                                 )
                                 val intent = Intent(this@CrearCuenta, MainActivity::class.java)

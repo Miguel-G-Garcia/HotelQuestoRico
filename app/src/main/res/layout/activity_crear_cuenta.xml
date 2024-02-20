@@ -72,6 +72,19 @@
             android:hint="Telefono" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/atAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nickname" />
+
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
